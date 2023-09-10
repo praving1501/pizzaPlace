@@ -1,0 +1,117 @@
+{
+  "Margherita Pizza": {
+    "Ingredients": [
+      "Tomato sauce",
+      "Mozzarella cheese",
+      "Basel leaves",
+      "Olive oil",
+      "Salt",
+      "Pepper"
+    ],
+    "Cooking Time": "12000",
+    "Cost": 100
+  },
+  "Veggie Supreme Pizza": {
+    "Ingredients": [
+      "Tomato sauce",
+      "Mozzarella cheese",
+      "Bell pepper",
+      "Olive",
+      "Red onion",
+      "Mushrooms",
+      "Spinach"
+    ],
+    "Cooking Time": "15000",
+    "Cost": 100
+  },
+  "Pesto and Sun-Dried Tomato Pizza": {
+    "Ingredients": [
+      "Pesto sauce",
+      "Mozzarella cheese",
+      "Tomato",
+      "Olive",
+      "Basel leaves"
+    ],
+    "Cooking Time": "12000",
+    "Cost": 100
+  },
+  "Spinach and Feta Pizza": {
+    "Ingredients": [
+      "Tomato sauce",
+      "Mozzarella cheese",
+      "Spinach",
+      "Feta cheese",
+      "Red onion",
+      "Garlic"
+    ],
+    "Cooking Time": "15000",
+    "Cost": 100
+  },
+  "Mushroom and Truffle Oil Pizza": {
+    "Ingredients": [
+      "Truffle oil",
+      "Mozzarella cheese",
+      "Mushrooms",
+      "Thyme",
+      "Parmesan"
+    ],
+    "Cooking Time": "15000",
+    "Cost": 100
+  },
+  "Pepperoni Pizza": {
+    "Ingredients": [
+      "Tomato sauce",
+      "Mozzarella cheese",
+      "Pepperoni",
+      "Oregano",
+      "Red pepper"
+    ],
+    "Cooking Time": "12000",
+    "Cost": 100
+  },
+  "Hawaiian Pizza": {
+    "Ingredients": [
+      "Tomato sauce",
+      "Mozzarella cheese",
+      "Bacon",
+      "Pineapple",
+      "Oregano"
+    ],
+    "Cooking Time": "12000",
+    "Cost": 100
+  },
+  "BBQ Chicken Pizza": {
+    "Ingredients": [
+      "Barbecue sauce",
+      "Mozzarella cheese",
+      "Chicken breast",
+      "Red onion",
+      "Cilantro"
+    ],
+    "Cooking Time": "15000",
+    "Cost": 100
+  },
+  "Meat Lover's Pizza": {
+    "Ingredients": [
+      "Tomato sauce",
+      "Mozzarella cheese",
+      "Pepperoni",
+      "Sausage",
+      "Bacon",
+      "Beef"
+    ],
+    "Cooking Time": "15000",
+    "Cost": 100
+  },
+  "Buffalo Chicken Pizza": {
+    "Ingredients": [
+      "Buffalo sauce",
+      "Mozzarella cheese",
+      "Chicken breast",
+      "Red onion",
+      "Cheese"
+    ],
+    "Cooking Time": "15000",
+    "Cost": 100
+  }
+}
