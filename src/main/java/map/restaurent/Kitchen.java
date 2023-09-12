@@ -9,45 +9,68 @@ public class Kitchen {
 
 	private static List<Ingredients> ingredient;
 	private static List<Pizza> pizza;
-	private static Oven[] ovenList = new Oven[5];
+	private static Map<Thread, Oven> ovenList = new HashMap<>();
 	private static Map<Integer, String> backLog = new HashMap<Integer, String>();
+	private static List<Boolean> ovenFree = new ArrayList<>();
 
 	// Load the ingredients and pizza
 	static {
 		try {
 			ingredient = Loader.setIngredients(".\\lib\\jsonfile\\ingredients.json");
 			pizza = Loader.enterPizza(".\\lib\\jsonfile\\pizza.json", ingredient);
-			for (int i = 0; i < ovenList.length; i++) {
-				ovenList[i] = Loader.setOven(i + 1);
-			}
+			System.out.println("Ingredients added");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+
+		System.out.println("setting oven");
+		for (int i = 0; i < 3; i++) {
+			Map.Entry<Thread, Oven> entry = Loader.setOven(new Oven(i));
+			ovenList.put(entry.getKey(), entry.getValue());
+			System.out.println("Oven " + i + " added");
+			entry.getKey().start();
+		}
+
 	}
 
-	public static Pizza order(String choice) {
-		
+	public boolean checkOven() {
+		for (Map.Entry<Thread, Oven> free : ovenList.entrySet()) {
+			ovenFree.add(free.getValue().getInUse());
+		}
+
+		return ovenFree.contains(true);
+	}
+
+	// Put pizza into oven
+	public Pizza order(String choice) {
+
 		System.out.println("now in kitchen");
+
 		Pizza dummy = null;
+		while (checkOven()) {
 
-		for (int i = 0; i < ovenList.length; i++) {
-			System.out.println(ovenList[i].getInUse());
-			if (ovenList[i].getInUse()) {
-				System.out.println("Owen is free");
-				for (Pizza recipe : pizza) {
+			for (Map.Entry<Thread, Oven> free : ovenList.entrySet()) {
+				if (free.getValue().getInUse()) {
+					System.out.println("Owen is free");
+					for (Pizza recipe : pizza) {
 
-					if (choice.equals(recipe.getName())) {
-						System.out.println("Pizza being put into owen");
-						dummy = ovenList[i].cook(recipe);
+						if (choice.equals(recipe.getName())) {
+							System.out.println("Pizza being put into owen");
+							dummy = free.getValue().cook(recipe);
+						}
 					}
-				}
-				while(dummy==null) {
-					try {
-						Thread.sleep(1000);
-					} catch (InterruptedException e) {
-						e.printStackTrace();
+					while (dummy == null) {
+						try {
+							Thread.sleep(1000);
+						} catch (InterruptedException e) {
+							e.printStackTrace();
+						}
 					}
-				}
+				} break;
+			}
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
 			}
 		}
 		return dummy;

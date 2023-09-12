@@ -3,8 +3,10 @@ package map.restaurent;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.AbstractMap;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -83,8 +85,10 @@ public class Loader {
 		return ingredients;
 	}
 	
-	public static Oven setOven(int i) {
+	//Load oven
+	public static Map.Entry<Thread, Oven> setOven(Oven obj) {
 		
-		return new Oven(i);
+		Thread test = new Thread(obj);
+		return new AbstractMap.SimpleEntry<>(test, obj);
 	}
 }
